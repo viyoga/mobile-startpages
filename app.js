@@ -24,7 +24,7 @@
     }
   }
 
-  // ── Multi-Theme System (Synchronized with Hiraeth) ──
+  // ── Multi-Theme System (Synchronized with Viyoga) ──
   const THEMES = ['amber', 'mallow', 'gruvbox-material', 'safelight', 'tungsten'];
   const THEME_COLORS = {
     amber: '#0B0906',
@@ -42,8 +42,8 @@
     if (qTheme && THEMES.indexOf(qTheme) >= 0) {
       currentTheme = qTheme;
     } else {
-      // Synchronized with main Hiraeth website ('theme' in localStorage)
-      let stored = localStorage.getItem('theme') || localStorage.getItem('hiraeth_mobile_theme') || 'safelight';
+      // Synchronized with main Viyoga website ('theme' in localStorage)
+      let stored = localStorage.getItem('theme') || localStorage.getItem('viyoga_mobile_theme') || 'safelight';
       if (stored === 'gruvbox' || stored === 'slick') stored = 'gruvbox-material';
       currentTheme = (THEMES.indexOf(stored) >= 0) ? stored : 'safelight';
     }
@@ -67,7 +67,7 @@
 
     try {
       localStorage.setItem('theme', theme);
-      localStorage.setItem('hiraeth_mobile_theme', theme);
+      localStorage.setItem('viyoga_mobile_theme', theme);
     } catch(e) {}
     document.dispatchEvent(new CustomEvent('themechange'));
   }
@@ -82,7 +82,7 @@
   }
   applyTheme(currentTheme);
 
-  // ── Multi-Font System (Synchronized with Hiraeth) ──
+  // ── Multi-Font System (Synchronized with Viyoga) ──
   const FONTS = ['space', 'maple', 'iosevka'];
   const FONT_LABELS = { space: 'Space Mono', maple: 'Maple Mono', iosevka: 'Iosevka' };
   let currentFont = 'space';
@@ -275,7 +275,7 @@
     });
   }
 
-  // ── Touch & Cursor Spotlight Sheen (matching hiraeth spotlight) ──
+  // ── Touch & Cursor Spotlight Sheen (matching viyoga spotlight) ──
   if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) {
     const SPOT_SEL = '.signal-panel, .shortcut, .search-form, .theme-btn, .brand-prompt';
     function attachSpotlight(el) {

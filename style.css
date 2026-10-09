@@ -1,5 +1,5 @@
 /* ══════════════════════════════════════════════════════════════
-   Hiraeth Minimal Mobile Startpage
+   Viyoga Minimal Mobile Startpage
    100% Screen Fitted • Zero Scroll • Top Cat & Time • Crimson Default
    ══════════════════════════════════════════════════════════════ */
 
@@ -479,7 +479,7 @@ html.grid-live body:has(#grid-canvas)::before { opacity: 0; }
   overflow: hidden;
 }
 
-/* ── Top Header Bar (Matching Hiraeth nav.top) ── */
+/* ── Top Header Bar (Matching Viyoga nav.top) ── */
 .brand {
   display: flex;
   align-items: center;
@@ -532,7 +532,7 @@ html.grid-live body:has(#grid-canvas)::before { opacity: 0; }
   align-items: center;
 }
 
-/* Pixel Cat Mark inside header logo (Matching Hiraeth) */
+/* Pixel Cat Mark inside header logo (Matching Viyoga) */
 .site-cat { overflow: hidden; position: relative; width: 20px; height: 18px; flex-shrink: 0; }
 .site-cat .cat-logo { position: relative; display: block; width: 182px; height: 166px; transform: scale(0.11); transform-origin: top left; }
 .site-cat .cat-logo i { position: absolute; display: block; }
@@ -614,7 +614,7 @@ html.grid-live body:has(#grid-canvas)::before { opacity: 0; }
   min-height: 0;
 }
 
-/* ── Frosted Glass Terminal Window (hiraeth terminal treatment) ── */
+/* ── Frosted Glass Terminal Window (viyoga terminal treatment) ── */
 .signal-shell {
   position: relative;
   width: 100%;
@@ -649,7 +649,7 @@ html.grid-live body:has(#grid-canvas)::before { opacity: 0; }
   box-shadow: var(--glass-shadow);
 }
 
-/* Panel Header (hiraeth terminal-bar) */
+/* Panel Header (viyoga terminal-bar) */
 .panel-head {
   display: flex;
   justify-content: space-between;
@@ -1174,7 +1174,7 @@ html.grid-live body:has(#grid-canvas)::before { opacity: 0; }
   transform: scale(1.08);
 }
 
-/* ── Interactive Spotlight Sheen (matching hiraeth spotlight) ── */
+/* ── Interactive Spotlight Sheen (matching viyoga spotlight) ── */
 @property --mx {
   syntax: "<length>";
   inherits: true;

@@ -1,6 +1,6 @@
 {
-  "name": "hiraeth // startpage",
-  "short_name": "hiraeth",
+  "name": "viyoga // startpage",
+  "short_name": "viyoga",
   "description": "Minimal, non-scrollable retro terminal startpage for mobile.",
   "start_url": "./index.html",
   "display": "standalone",

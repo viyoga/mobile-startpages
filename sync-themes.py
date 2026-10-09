@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
 Sync Themes Script:
-Reads theme definitions from Hiraeth (../hiraeth/static/style.css)
-and synchronizes them directly into mobile-startpages (style.css, app.js, index.html).
+# Reads theme definitions from Viyoga (../viyoga/static/style.css)
+# and synchronizes them directly into mobile-startpages (style.css, app.js, index.html).
 """
 
 import os
 import re
 
-HIRAETH_CSS = os.path.abspath(os.path.join(os.path.dirname(__file__), "../hiraeth/static/style.css"))
+VIYOGA_CSS = os.path.abspath(os.path.join(os.path.dirname(__file__), "../viyoga/static/style.css"))
 MOBILE_DIR = os.path.dirname(os.path.abspath(__file__))
 MOBILE_CSS = os.path.join(MOBILE_DIR, "style.css")
 MOBILE_APP = os.path.join(MOBILE_DIR, "app.js")
@@ -53,20 +53,20 @@ NOCTALIA_PALETTES = {
 }
 
 def sync():
-    if not os.path.exists(HIRAETH_CSS):
-        print(f"Error: Hiraeth stylesheet not found at {HIRAETH_CSS}")
+    if not os.path.exists(VIYOGA_CSS):
+        print(f"Error: Viyoga stylesheet not found at {VIYOGA_CSS}")
         return
 
-    with open(HIRAETH_CSS, "r", encoding="utf-8") as f:
-        hiraeth_content = f.read()
+    with open(VIYOGA_CSS, "r", encoding="utf-8") as f:
+        viyoga_content = f.read()
 
     # Extract all theme blocks
     theme_pattern = re.compile(r'\[data-theme="([^"]+)"\]\s*\{([^}]+)\}', re.MULTILINE)
-    matches = theme_pattern.findall(hiraeth_content)
+    matches = theme_pattern.findall(viyoga_content)
 
     themes = {}
     for name, body in matches:
-        # merge: hiraeth may split a theme across blocks (e.g. cat ramps)
+        # merge: viyoga may split a theme across blocks (e.g. cat ramps)
         vars_dict = themes.setdefault(name, {})
         for line in body.strip().split("\n"):
             line = line.strip()
@@ -80,7 +80,7 @@ def sync():
         if t not in valid_themes:
             valid_themes.append(t)
 
-    print(f"Found {len(valid_themes)} themes in Hiraeth: {', '.join(valid_themes)}")
+    print(f"Found {len(valid_themes)} themes in Viyoga: {', '.join(valid_themes)}")
 
     # Build new theme CSS block
     css_blocks = []
@@ -180,7 +180,7 @@ def sync():
         updated_css = mob_css[:idx_start] + new_themes_css + "\n\n" + mob_css[idx_end:]
         with open(MOBILE_CSS, "w", encoding="utf-8") as f:
             f.write(updated_css)
-        print("Updated style.css with latest Hiraeth themes!")
+        print("Updated style.css with latest Viyoga themes!")
     else:
         print("Warning: Could not match theme markers in mobile style.css")
 
@@ -203,7 +203,7 @@ def sync():
     )
     with open(MOBILE_APP, "w", encoding="utf-8") as f:
         f.write(app_content)
-    print("Updated app.js with latest Hiraeth theme lists & background colors!")
+    print("Updated app.js with latest Viyoga theme lists & background colors!")
 
 if __name__ == "__main__":
     sync()
